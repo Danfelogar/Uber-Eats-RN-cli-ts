@@ -1,18 +1,30 @@
 import React from 'react';
-import { View, SafeAreaView } from 'react-native';
+import { View, SafeAreaView, ScrollView } from 'react-native';
 
-import Categories from '../components/Categories';
-import HeaderTabs from '../components/HeaderTabs';
-import SearchBar from '../components/SearchBar';
+import BottomTab from '../components/home/BottomTab';
+import HeaderTabs from '../components/home/HeaderTabs';
+import Categories from '../components/home/Categories';
+import RestaurantItem from '../components/home/RestaurantItem';
+import SearchBar from '../components/home/SearchBar';
+//hooks
+import { useHome } from '../hooks/useHome';
+
 
 export default function Home() {
+
+    const { restaurantData, city, setCity, activeTab, setActiveTab } = useHome();
+
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: '#eee', }}>
             <View style={{ backgroundColor: 'white', padding: 15 }}>
-                <HeaderTabs />
-                <SearchBar />
+                <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+                <SearchBar cityHandler={setCity}/>
             </View>
-            <Categories />
+            < ScrollView showsVerticalScrollIndicator={false}>
+                <Categories />
+                <RestaurantItem restaurantData={restaurantData} />
+            </ScrollView>
+            <BottomTab />
         </SafeAreaView>
     )
 }

@@ -1,12 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
-import Home from './src/screen/Home';
-
+import StackNavigation from './src/navigation/StackNavigation';
 const App = () => {
-  return <Home />;
+  return(
+    <NavigationContainer>
+      <StackNavigation />
+    </NavigationContainer>
+  )
 }
 
 export default App
-
-// const styles = StyleSheet.create({})

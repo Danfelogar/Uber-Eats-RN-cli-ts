@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, TouchableOpacity, Dimensions } from 'react-native';
 
-import { PropsCompHBtn } from '../interfaces/interfaces';
+import { PropsCompHBtn } from '../../interfaces/interfaces';
 
-export default function HeaderTabs() {
-    const [activeTab, setActiveTab] = useState('Pickup');
+export default function HeaderTabs(props :any) {
     return (
         <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
             <HeaderButton
             text='Delivery'
             btnColor='black'
             textColor='white'
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
+            activeTab={props.activeTab}
+            setActiveTab={props.setActiveTab}
             />
             <HeaderButton
             text='Pickup'
             btnColor='white'
             textColor='black'
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
+            activeTab={props.activeTab}
+            setActiveTab={props.setActiveTab}
             />
         </View>
     )
