@@ -8,7 +8,6 @@ export const useHome = () => {
     const [restaurantData, setRestaurantData] = useState([]);
     const [city, setCity] = useState("San Francisco");
     const [activeTab, setActiveTab] = useState<string | Transaction[]>("Delivery");
-    console.log('YELP_API_KEY===>', YELP_API_KEY);
     const getRestaurantsFromYelp = async() => {
         const yelpUrl = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${city}`;
 

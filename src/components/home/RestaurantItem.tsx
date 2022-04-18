@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import { arrayLocalRestaurants, Business, NavDeatail, PropsRestItemImg, PropsRestItemInfo } from '../../interfaces/interfaces';
@@ -84,4 +84,3 @@ const RestaurantInfo = ({name, rating}: PropsRestItemInfo) => (
         </View>
     </View>
 )
-const styles = StyleSheet.create({})

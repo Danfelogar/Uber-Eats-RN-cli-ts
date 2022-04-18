@@ -37,6 +37,8 @@ export interface PropsFoods {
     description: string;
     price: string;
     image: string;
+    checkBoxValue?: boolean;
+    restaurantName?: string;
 }[]
 
 
