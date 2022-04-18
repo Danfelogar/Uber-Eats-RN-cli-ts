@@ -10,8 +10,6 @@ import { RootStackParam } from "../navigation/StackNavigation";
 
 interface Props extends StackScreenProps<RootStackParam, 'RestaurantDeatails'> {};
 
-
-
 const RestaurantDeatails = ({route}: Props) => {
 
     const { name, image_url, review_count, rating, categories, price } = route.params;

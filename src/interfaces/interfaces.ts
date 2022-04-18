@@ -2,10 +2,17 @@
 
 import { Dispatch, SetStateAction } from "react";
 
+export interface NavHome {
+    navigate: (value: string,) => void;
+};
+
 export interface NavDeatail {
     navigate: (value: string, restauran: singleBusiness) => void;
 };
 
+export interface NavOrderCompleted {
+    navigate: (value: string, params: any) => void;
+};
 export interface PropsCompHBtn {
     text: string;
     btnColor?: string;

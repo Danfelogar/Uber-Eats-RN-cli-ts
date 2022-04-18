@@ -1,15 +1,18 @@
 import React from 'react';
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { PropsFoods } from "../interfaces/interfaces";
+import { NavOrderCompleted, PropsFoods } from "../interfaces/interfaces";
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import OrderItem from '../components/restaurantDetail/OrderItem';
+import { useNavigation } from '@react-navigation/native';
 
 
 export const useDetail =()=>{
 
     const dispatch = useDispatch();
+
+    const navigation = useNavigation<NavOrderCompleted>();
 
     const [modalShow, setModalShow] = useState(false);
 
@@ -32,13 +35,14 @@ export const useDetail =()=>{
         })
     };
 
-    const addOrderToFireBase = () => {
+    const addOrder= () => {
         setLoading(true);
+        setModalShow(false);
 
-            setTimeout(() => {
-                setLoading(false);
-                // navigation.navigate("OrderCompleted");
-            }, 2500);
+        setTimeout(() => {
+            setLoading(false);
+            navigation.navigate("OrderCompleted", { totalUSD: totalUSD });
+        }, 2500);
 
     };
 
@@ -72,7 +76,7 @@ export const useDetail =()=>{
                                 width: 300,
                                 position: "relative",
                             }}
-                            onPress={() => addOrderToFireBase()}
+                            onPress={() => addOrder()}
                             >
                                 <Text style={{ color: 'white', fontSize: 20 }}>Checkout</Text>
                                 <Text
@@ -127,6 +131,7 @@ export const useDetail =()=>{
         items,
         restaurantName,
         modalShow,
+        loading,
 
         setModalShow,
         totalUSD,

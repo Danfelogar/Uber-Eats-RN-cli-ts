@@ -1,11 +1,12 @@
+import React from 'react';
 import { View, Text, TouchableOpacity, Modal, } from 'react-native';
-import React from 'react'
+import LottieView from "lottie-react-native";
 import { singleBusiness } from '../../interfaces/interfaces';
 import { useDetail } from '../../hooks/useDetail';
 
 const ViewCartBtn = ( props: singleBusiness) => {
 
-    const { modalShow, setModalShow, totalUSD, checKoutModalContent } = useDetail();
+    const { loading, modalShow, setModalShow, totalUSD, checKoutModalContent } = useDetail();
 
     return (
         <>
@@ -26,6 +27,28 @@ const ViewCartBtn = ( props: singleBusiness) => {
                         </TouchableOpacity>
                     </View>
                 </View>
+            }
+            {
+            loading && (
+                <View
+                style={{
+                    backgroundColor: "black",
+                    position: "absolute",
+                    opacity: 0.6,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                    width: "100%",
+                }}
+                >
+                    <LottieView
+                        style={{ height: 200 }}
+                        source={require("../../assets/animations/scanner.json")}
+                        autoPlay
+                        speed={3}
+                    />
+                </View>
+            )
             }
         </>
     )
